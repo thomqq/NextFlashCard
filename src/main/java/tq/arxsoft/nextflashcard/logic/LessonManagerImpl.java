@@ -5,7 +5,11 @@
  */
 package tq.arxsoft.nextflashcard.logic;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import tq.arxsoft.nextflashcard.entity.FlashCardEntity;
 
 /**
@@ -14,11 +18,16 @@ import tq.arxsoft.nextflashcard.entity.FlashCardEntity;
  */
 
 @Component
-public class LessonManagerFake implements LessonManager{
+@Primary
+@Transactional
+public class LessonManagerImpl implements LessonManager{
+    
+    @PersistenceContext
+    EntityManager entityManager;
 
     @Override
     public FlashCardEntity getNextFlasCard() {
-        return new FlashCardEntity(1, "dom", "house");
+        return entityManager.find(FlashCardEntity.class, 1);
     }
     
 }

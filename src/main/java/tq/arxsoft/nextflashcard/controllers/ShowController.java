@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import tq.arxsoft.nextflashcard.entity.FlashCardEntity;
 import tq.arxsoft.nextflashcard.logic.LessonManager;
-import tq.arxsoft.nextflashcard.model.FlashCard;
 
 /**
  *
@@ -25,7 +25,7 @@ public class ShowController {
     @RequestMapping("show")
     public String show(Model model) {
         
-        FlashCard flashCard = lessonManager.getNextFlasCard();
+        FlashCardEntity flashCard = lessonManager.getNextFlasCard();
         
         model.addAttribute("flash_card", flashCard);
         model.addAttribute("showAnswer", "true");

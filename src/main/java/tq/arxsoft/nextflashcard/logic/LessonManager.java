@@ -5,7 +5,7 @@
  */
 package tq.arxsoft.nextflashcard.logic;
 
-import tq.arxsoft.nextflashcard.model.FlashCard;
+import tq.arxsoft.nextflashcard.entity.FlashCardEntity;
 
 /**
  *
@@ -13,5 +13,5 @@ import tq.arxsoft.nextflashcard.model.FlashCard;
  */
 
 public interface LessonManager {
-    FlashCard getNextFlasCard();
+    FlashCardEntity getNextFlasCard();
 }
