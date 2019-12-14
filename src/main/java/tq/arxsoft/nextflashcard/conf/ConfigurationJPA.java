@@ -5,9 +5,13 @@
  */
 package tq.arxsoft.nextflashcard.conf;
 
+import java.util.Properties;
+import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 
 /**
  *
@@ -15,6 +19,27 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class ConfigurationJPA {
+
+    @Bean
+    DataSource dataSource() {
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName("org.postgresql.Driver");
+        ds.setUrl("jdbc:postgresql://localhost:5432/EnglishFlashCard");
+        ds.setUsername("postgres");
+        ds.setPassword("adminadmin");
+        return ds;
+    }
+
+    @Bean
+    LocalSessionFactoryBean localEntityManagerFactoryBean(DataSource dataSource) {
+        LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
+        factoryBean.setDataSource(dataSource);
+        factoryBean.setPackagesToScan(new String[]{"tq.arxsoft.nextflashcard.entity"});
+        Properties props = new Properties();
+        props.setProperty("dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        factoryBean.setHibernateProperties(props);
+        return factoryBean;
+    }
 
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactoryBean() {
