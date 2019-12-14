@@ -34,10 +34,11 @@ public class ConfigurationJPA {
     LocalSessionFactoryBean localEntityManagerFactoryBean(DataSource dataSource) {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
-        factoryBean.setPackagesToScan(new String[]{"tq.arxsoft.nextflashcard.entity"});
-        Properties props = new Properties();
-        props.setProperty("dialect", "org.hibernate.dialect.PostgreSQLDialect");
-        factoryBean.setHibernateProperties(props);
+        factoryBean.setPackagesToScan(new String[]{"tq.arxsoft.nextflashcard"});
+        //Properties props = new Properties();
+        //props.setProperty("dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        //props.setProperty("show_sql", "true");
+        //factoryBean.setHibernateProperties(props);
         return factoryBean;
     }
 
