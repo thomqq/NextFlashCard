@@ -25,6 +25,6 @@
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" />
 
-    <context:component-scan base-package="tq.arxsoft.nextflashcard.controllers" />
+    <context:component-scan base-package="tq.arxsoft.nextflashcard" />
 
 </beans>

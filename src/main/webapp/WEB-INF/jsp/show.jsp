@@ -17,7 +17,7 @@
     <body>
         <table class="mainTable">
             <tr with="300">
-                <td>Pytanie: </td><td>${question} </td>
+                <td>Pytanie: </td><td>${flash_card.question} </td>
             </tr>
             <c:set var="conditional" value="${showAnswer}"/>
             <form:form action="zosia" >
@@ -25,7 +25,7 @@
                     <td>Odpowiedź: </td><td>
                         <c:choose>
                             <c:when test="${conditional.equals('true')}">
-                                ${answer}
+                                ${flash_card.answer}
                             </c:when>
                             <c:otherwise>
                                 --------- <br>

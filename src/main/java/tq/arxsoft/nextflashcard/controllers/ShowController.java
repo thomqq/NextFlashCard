@@ -5,9 +5,12 @@
  */
 package tq.arxsoft.nextflashcard.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import tq.arxsoft.nextflashcard.logic.LessonManager;
+import tq.arxsoft.nextflashcard.model.FlashCard;
 
 /**
  *
@@ -15,17 +18,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class ShowController {
+    
+    @Autowired
+    LessonManager lessonManager;
 
     @RequestMapping("show")
     public String show(Model model) {
-        model.addAttribute("question", "drzwi");
-        model.addAttribute("answer", "door");
+        
+        FlashCard flashCard = lessonManager.getNextFlasCard();
+        
+        model.addAttribute("flash_card", flashCard);
         model.addAttribute("showAnswer", "true");
         return "show";
     }
 
-//    @RequestMapping("zosia")
-//    public String show1() {
-//        return "zosia";
-//    }
 }
