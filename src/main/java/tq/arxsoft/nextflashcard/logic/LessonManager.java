@@ -11,7 +11,11 @@ import tq.arxsoft.nextflashcard.entity.FlashCardEntity;
  *
  * @author tkudas
  */
-
 public interface LessonManager {
+
     FlashCardEntity getNextFlasCard();
+
+    default public void correctAnswer() {}
+
+    default public void incorrectAnswer() {}
 }

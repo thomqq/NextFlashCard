@@ -22,14 +22,25 @@ public class ShowController {
     @Autowired
     LessonManager lessonManager;
 
-    @RequestMapping("show")
+    @RequestMapping
     public String show(Model model) {
         
         FlashCardEntity flashCard = lessonManager.getNextFlasCard();
         
         model.addAttribute("flash_card", flashCard);
-        model.addAttribute("showAnswer", "true");
         return "show";
+    }
+    
+    @RequestMapping("/correct")
+    public String correct() {
+        lessonManager.correctAnswer();
+        return "redirect:/logic/show";
+    }
+    
+    @RequestMapping("/incorrect")
+    public String incorrect() {
+        lessonManager.incorrectAnswer();
+        return "redirect:/logic/show";
     }
 
 }

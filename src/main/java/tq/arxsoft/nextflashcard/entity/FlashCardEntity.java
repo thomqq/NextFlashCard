@@ -33,6 +33,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "FlashCardEntity.findByAnswer", query = "SELECT f FROM FlashCardEntity f WHERE f.answer = :answer")})
 public class FlashCardEntity implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "correct")
+    private int correct;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "incorrect")
+    private int incorrect;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -110,6 +119,22 @@ public class FlashCardEntity implements Serializable {
     @Override
     public String toString() {
         return "tq.arxsoft.nextflashcard.entity.Flashcard[ id=" + id + " ]";
+    }
+
+    public int getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(int correct) {
+        this.correct = correct;
+    }
+
+    public int getIncorrect() {
+        return incorrect;
+    }
+
+    public void setIncorrect(int incorrect) {
+        this.incorrect = incorrect;
     }
     
 }
