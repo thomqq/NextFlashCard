@@ -28,6 +28,7 @@ public class ShowController {
         FlashCardEntity flashCard = lessonManager.getNextFlasCard();
         
         model.addAttribute("flash_card", flashCard);
+        model.addAttribute("title", lessonManager.getTitle());
         return "show";
     }
     

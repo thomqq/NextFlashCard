@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -30,17 +32,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "FlashCardEntity.findAll", query = "SELECT f FROM FlashCardEntity f"),
     @NamedQuery(name = "FlashCardEntity.findById", query = "SELECT f FROM FlashCardEntity f WHERE f.id = :id"),
     @NamedQuery(name = "FlashCardEntity.findByQuestion", query = "SELECT f FROM FlashCardEntity f WHERE f.question = :question"),
-    @NamedQuery(name = "FlashCardEntity.findByAnswer", query = "SELECT f FROM FlashCardEntity f WHERE f.answer = :answer")})
+    @NamedQuery(name = "FlashCardEntity.findByAnswer", query = "SELECT f FROM FlashCardEntity f WHERE f.answer = :answer"),
+    @NamedQuery(name = "FlashCardEntity.findByCorrect", query = "SELECT f FROM FlashCardEntity f WHERE f.correct = :correct"),
+    @NamedQuery(name = "FlashCardEntity.findByIncorrect", query = "SELECT f FROM FlashCardEntity f WHERE f.incorrect = :incorrect")})
 public class FlashCardEntity implements Serializable {
-
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "correct")
-    private int correct;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "incorrect")
-    private int incorrect;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -58,6 +53,20 @@ public class FlashCardEntity implements Serializable {
     @Size(min = 1, max = 2147483647)
     @Column(name = "answer")
     private String answer;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "correct")
+    private int correct;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "incorrect")
+    private int incorrect;
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @ManyToOne
+    private CategoryEntity categoryId;
+    @JoinColumn(name = "part_of_speech_id", referencedColumnName = "id")
+    @ManyToOne
+    private PartOfSpeechEntity partOfSpeechId;
 
     public FlashCardEntity() {
     }
@@ -66,10 +75,12 @@ public class FlashCardEntity implements Serializable {
         this.id = id;
     }
 
-    public FlashCardEntity(Integer id, String question, String answer) {
+    public FlashCardEntity(Integer id, String question, String answer, int correct, int incorrect) {
         this.id = id;
         this.question = question;
         this.answer = answer;
+        this.correct = correct;
+        this.incorrect = incorrect;
     }
 
     public Integer getId() {
@@ -96,6 +107,38 @@ public class FlashCardEntity implements Serializable {
         this.answer = answer;
     }
 
+    public int getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(int correct) {
+        this.correct = correct;
+    }
+
+    public int getIncorrect() {
+        return incorrect;
+    }
+
+    public void setIncorrect(int incorrect) {
+        this.incorrect = incorrect;
+    }
+
+    public CategoryEntity getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(CategoryEntity categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public PartOfSpeechEntity getPartOfSpeechId() {
+        return partOfSpeechId;
+    }
+
+    public void setPartOfSpeechId(PartOfSpeechEntity partOfSpeechId) {
+        this.partOfSpeechId = partOfSpeechId;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -118,23 +161,7 @@ public class FlashCardEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "tq.arxsoft.nextflashcard.entity.Flashcard[ id=" + id + " ]";
-    }
-
-    public int getCorrect() {
-        return correct;
-    }
-
-    public void setCorrect(int correct) {
-        this.correct = correct;
-    }
-
-    public int getIncorrect() {
-        return incorrect;
-    }
-
-    public void setIncorrect(int incorrect) {
-        this.incorrect = incorrect;
+        return "tq.arxsoft.nextflashcard.entity.FlashCardEntity[ id=" + id + " ]";
     }
     
 }

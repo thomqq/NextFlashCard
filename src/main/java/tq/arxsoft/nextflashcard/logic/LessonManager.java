@@ -5,7 +5,11 @@
  */
 package tq.arxsoft.nextflashcard.logic;
 
+import java.util.Collection;
+import java.util.List;
+import tq.arxsoft.nextflashcard.entity.CategoryEntity;
 import tq.arxsoft.nextflashcard.entity.FlashCardEntity;
+import tq.arxsoft.nextflashcard.entity.PartOfSpeechEntity;
 
 /**
  *
@@ -15,7 +19,22 @@ public interface LessonManager {
 
     FlashCardEntity getNextFlasCard();
 
-    default public void correctAnswer() {}
+    default public void correctAnswer() {
+    }
 
-    default public void incorrectAnswer() {}
+    default public void incorrectAnswer() {
+    }
+
+    default public String getTitle() {
+        return "";
+    }
+
+    default List<CategoryEntity> getCategories() {
+        return null;
+    }
+
+    default List<PartOfSpeechEntity> getPartOfSpeech() {
+        return null;
+    }
+
 }

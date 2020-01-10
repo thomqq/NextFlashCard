@@ -14,7 +14,7 @@
     <body>
         <table height ="100" widht = "200" cellspacing="10">
             <tr>
-                <td><button onclick="Create">Create FlashCard</button></td>
+                <td><button onclick="location.href='add'">Create FlashCard</button></td>
                 <td><button onclick="location.href='show'">Start Lesson</button></td>
                 <!--
                 <td><button onclick="location.href='<c:url value='show'/>'">Start Lesson</button></td>

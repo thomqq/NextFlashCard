@@ -18,7 +18,7 @@ public class LessonManagerFake implements LessonManager{
 
     @Override
     public FlashCardEntity getNextFlasCard() {
-        return new FlashCardEntity(1, "dom", "house");
+        return new FlashCardEntity(1, "dom", "house", 0, 0);
     }
     
 }
