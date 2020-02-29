@@ -25,6 +25,11 @@
         </script>
     </head>
     <body>
+        <!--form action="<%=request.getContextPath()%>/logic/logout" method="POST"-->
+        <form action="<c:url value='/logic/logout'/>" method='POST'>
+            <input type="submit" value="Logout"/>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
+        </form>
         <table class="mainTable" cellspacing="10">
             <tr with="300">
                 <td>Pytanie: </td><td>${flash_card.question} </td>
@@ -35,8 +40,8 @@
             <tr>
                 <td colspan="2">
                     <div id="thumbs" style="display: none;">
-                        <a href="<c:url value='show/incorrect'/>"><img src="<c:url value='/pictures/thumb-down.png'/>" style="width: auto; padding: 15px; text-decoration: none;"></a>
-                        <a href="<c:url value='show/correct'/>"><img src="<c:url value='/pictures/thumb-up.png'/>" style="width: auto; padding: 15px; text-decoration: none;"></a>
+                        <a href="<c:url value='/logic/incorrect'/>"><img src="<c:url value='/pictures/thumb-down.png'/>" style="width: auto; padding: 15px; text-decoration: none;"></a>
+                        <a href="<c:url value='/logic/correct'/>"><img src="<c:url value='/pictures/thumb-up.png'/>" style="width: auto; padding: 15px; text-decoration: none;"></a>
                     </div>
                 </td>
             </tr>

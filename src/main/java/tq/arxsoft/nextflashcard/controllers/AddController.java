@@ -26,7 +26,7 @@ public class AddController {
     @Autowired
     LessonManager lessonManager;
 
-    @RequestMapping
+    @RequestMapping("add")
     String add(Model model) {
         List< IdValue> categories = new ArrayList<IdValue>();
         prepareCategories(categories);

@@ -22,7 +22,7 @@ public class ShowController {
     @Autowired
     LessonManager lessonManager;
 
-    @RequestMapping
+    @RequestMapping("/show")
     public String show(Model model) {
         
         FlashCardEntity flashCard = lessonManager.getNextFlasCard();
