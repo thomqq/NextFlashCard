@@ -10,6 +10,7 @@ import java.util.List;
 import tq.arxsoft.nextflashcard.entity.CategoryEntity;
 import tq.arxsoft.nextflashcard.entity.FlashCardEntity;
 import tq.arxsoft.nextflashcard.entity.PartOfSpeechEntity;
+import tq.arxsoft.nextflashcard.entity.UserAuth;
 
 /**
  *
@@ -36,5 +37,4 @@ public interface LessonManager {
     default List<PartOfSpeechEntity> getPartOfSpeech() {
         return null;
     }
-
 }

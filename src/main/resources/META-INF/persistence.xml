@@ -10,6 +10,7 @@
     <class>tq.arxsoft.nextflashcard.entity.Flashcard</class>
     <class>tq.arxsoft.nextflashcard.entity.CategoryEntity</class>
     <class>tq.arxsoft.nextflashcard.entity.PartOfSpeechEntity</class>
+    <class>tq.arxsoft.nextflashcard.entity.UserAuth</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="show_sql" value="true"/>

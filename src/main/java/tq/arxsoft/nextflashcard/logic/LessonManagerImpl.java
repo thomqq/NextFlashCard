@@ -24,6 +24,7 @@ import org.springframework.web.context.WebApplicationContext;
 import tq.arxsoft.nextflashcard.entity.CategoryEntity;
 import tq.arxsoft.nextflashcard.entity.FlashCardEntity;
 import tq.arxsoft.nextflashcard.entity.PartOfSpeechEntity;
+import tq.arxsoft.nextflashcard.entity.UserAuth;
 
 /**
  *
@@ -90,5 +91,5 @@ public class LessonManagerImpl implements LessonManager {
         List<PartOfSpeechEntity> resultList = query.getResultList();
         return resultList;
     }
-
+    
 }
