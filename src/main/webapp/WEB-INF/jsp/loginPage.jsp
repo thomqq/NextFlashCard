@@ -28,6 +28,8 @@
 			</tr>
 		</table>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                <input id="remember_me" name="remember-me" type="checkbox"/>
+                <label for="remember_me" class="inline">Pamiętaj mnie</label>
 	</form>
 </body>
 </html>

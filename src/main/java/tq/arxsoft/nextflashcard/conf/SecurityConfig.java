@@ -63,15 +63,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.csrf().disable()
                 
                 .authorizeRequests()
-           
                 .antMatchers("/logic/loginPage").permitAll()
                 .antMatchers("/logic/*").hasRole("USER")
-               
                 .and()
                 .formLogin().loginPage("/logic/loginPage")
                 .defaultSuccessUrl("/logic/show")
                 .failureUrl("/logic/loginPage?error")
                 .usernameParameter("username").passwordParameter("password")
+                .and()
+                .rememberMe().tokenValiditySeconds(10)
                 .and()
                 .logout()
                 .logoutUrl("/logic/logout")
