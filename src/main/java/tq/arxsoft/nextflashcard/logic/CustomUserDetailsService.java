@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tq.arxsoft.nextflashcard.conf;
+package tq.arxsoft.nextflashcard.logic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import tq.arxsoft.nextflashcard.entity.UserAuth;
 import tq.arxsoft.nextflashcard.logic.AuthorizationManager;
-import tq.arxsoft.nextflashcard.logic.LessonManager;
 
 /**
  *
@@ -27,7 +26,7 @@ import tq.arxsoft.nextflashcard.logic.LessonManager;
 
 @Service
 @Primary
-class CustomUserDetailsService implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
     
     @Autowired
     AuthorizationManager authorizationManager;

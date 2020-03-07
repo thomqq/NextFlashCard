@@ -5,13 +5,14 @@
  */
 package tq.arxsoft.nextflashcard.conf;
 
-import java.util.Properties;
 import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 /**
  *
@@ -48,4 +49,5 @@ public class ConfigurationJPA {
         emfb.setPersistenceUnitName("tq.arxsoft_NextFlashCard_war_1.0-SNAPSHOTPU");
         return emfb;
     }
+   
 }

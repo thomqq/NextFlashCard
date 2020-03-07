@@ -3,11 +3,6 @@
   <persistence-unit name="tq.arxsoft_NextFlashCard_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>tq.arxsoft.nextflashcard.entity.FlashCardEntity</class>
-    <class>tq.arxsoft.nextflashcard.entity.Category_1</class>
-    <class>tq.arxsoft.nextflashcard.entity.PartOfSpeech_1</class>
-    <class>tq.arxsoft.nextflashcard.entity.PartOfSpeech</class>
-    <class>tq.arxsoft.nextflashcard.entity.Category</class>
-    <class>tq.arxsoft.nextflashcard.entity.Flashcard</class>
     <class>tq.arxsoft.nextflashcard.entity.CategoryEntity</class>
     <class>tq.arxsoft.nextflashcard.entity.PartOfSpeechEntity</class>
     <class>tq.arxsoft.nextflashcard.entity.UserAuth</class>
