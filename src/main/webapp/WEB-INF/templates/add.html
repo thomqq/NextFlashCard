@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Add FlashCard</title>
+    </head>
+    <body>
+        <form>
+            <table>
+                <tr><td>Question: </td><td><input type="text" name="question"/></td></tr>
+                <tr><td>Answer: </td><td><input type="text" name="answer"/></td></tr>
+                <tr><td>Question: </td><td><input type="text" name="question"/></td></tr>
+                <tr><td>Category: </td>
+                    <td>
+                        <select name="category">
+                            <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.value}">
+                            </option>
+                        </select>
+                    </td></tr>
+                <tr><td>Part Of Speech: </td>
+                    <td>
+                        <select name="psrt_of_speech">
+                            <option th:each="speech : ${psrt_of_speechies}" th:value="${speech.id}" th:text="${speech.value}">
+                            </option>
+                        </select>
+                    </td></tr> 
+            </table>
+        </form>
+    </body>
+</html>
