@@ -5,12 +5,14 @@
  */
 package tq.arxsoft.nextflashcard.aspect;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 //import org.slf4j.LoggerFactory;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
@@ -24,7 +26,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    //private final Logger log = LoggerFactory.getLogger(this.getClass());
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 //    @Pointcut("winthin(tq.arxsoft.nextflashcard.controllers..*)")
 //    public void ControllerPackagesPointcut() {
@@ -36,8 +38,9 @@ public class LoggingAspect {
 
     @Around("controllersLayer()")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
-        Logger.getLogger(this.getClass().getName()).log(Level.ALL, "TQTQ: Call: " + joinPoint.getSignature().getName());
+        //Logger.getLogger(this.getClass().getName()).log(Level.ALL, "TQTQ: Call: " + joinPoint.getSignature().getName());
         //log.info("TQTQ: Call: " + joinPoint.getSignature().getName());
+        log.trace("TQTQ: Call: " + joinPoint.getSignature().getName());
         return joinPoint.proceed();
     }
 }
