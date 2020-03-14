@@ -70,16 +70,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/logic/show")
                 .failureUrl("/logic/loginPage?error")
                 .usernameParameter("username").passwordParameter("password")
-                .and()
-                .rememberMe().tokenValiditySeconds(10)
+                //.and()
+                //.rememberMe().tokenValiditySeconds(10)
                 .and()
                 .logout()
                 .logoutUrl("/logic/logout")
                 .logoutSuccessUrl("/logic/loginPage?logout")
-                ;
-                
-//                .invalidateHttpSession(true).
-//                deleteCookies("JSESSIONID");
+                .invalidateHttpSession(true).
+                deleteCookies("JSESSIONID");
 
     }
     

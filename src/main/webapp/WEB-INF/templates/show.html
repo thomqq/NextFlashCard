@@ -11,21 +11,13 @@ and open the template in the editor.
             <link href="/EnglishFlashCard/main.css" />
             <title>${title}</title>
             <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-            <script>
-                $(document).ready(function () {
-                    $("#answerButton").click(function () {
-                        $("#answerButton").hide();
-                        $("#answerText").show();
-                        $("#thumbs").show();
-                    });
-                });
-            </script>
+            <script src="../js/answer.js" />
     </head>
     <body>
         <!--form action="<%=request.getContextPath()%>/logic/logout" method="POST"-->
-        <th:form action="@{/logic/logout}" method='POST'>
+        <form th:action="@{/logic/logout}" method='POST'>
             <input type="submit" value="Logout"/>
-        </th:form>
+        </form>
         <table class="mainTable" cellspacing="10">
             <tr with="300">
                 <td>Pytanie: </td><td th:text="${flash_card.question}">Question</td>
@@ -35,7 +27,7 @@ and open the template in the editor.
             </tr>
             <tr>
                 <td colspan="2">
-                    <div id="thumbs" style="display: none;">
+                    <div id="thumbs">
                         <a th:href="@{/logic/incorrect}"><img th:src="@{/pictures/thumb-down.png}" style="width: auto; padding: 15px; text-decoration: none;"/></a>
                         <a th:href="@{/logic/correct}"><img th:src="@{/pictures/thumb-up.png}" style="width: auto; padding: 15px; text-decoration: none;"/></a>
                     </div>
